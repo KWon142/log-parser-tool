@@ -1,0 +1,20 @@
+[2024-05-01 10:00:01] | INFO | [auth-service] | req-001 | User login successful | {"user_id": 142, "ip": "192.168.156"}
+[2024-05-01 10:00:03] | DEBUG | [payment-service] | req-002 | Processing transaction | {"amount": 2340}
+[2024-05-01 10:00:04] | ERROR | [payment-service] | req-003 | Connection timeout | {"user_id": 112, "retry": 3}
+[2024-05-01 10:00:04] | INFO | [auth-service] | req-004 | Token refreshed | {"user_id": 188}
+[2024-05-01 10:00:06] | WARN | [risk-engine] | req-005 | High latency detected | {"latency_ms": 1250}
+[2024-05-01 10:00:07] | ERROR | [payment-service] | req-006 | Insufficient Funds | {"user_id": 105, "balance": 10.50}
+BROKEN_LINE_GARBAGE_DATA_82734
+[2024-05-01 10:00:09] | ERROR | [payment-service] | req-008 | Connection timeout | {"user_id": 155, "retry": 1}
+[2024-05-01 10:00:10] | DEBUG | [payment-service] | req-009 | Processing transaction | {"amount": 500}
+[2024-05-01 10:00:12] | INFO | [auth-service] | req-010 | User login successful | {"user_id": 190, "ip": "192.168.1.12"}
+[2024-05-01 10:00:13] | WARN | [risk-engine] | req-011 | High latency detected | {"latency_ms": 4102}
+[2024-05-01 10:00:14] | INFO | [auth-service] | req-012 | Token refreshed | {"user_id": 133}
+[2024-05-01 10:00:16] | DEBUG | [payment-service] | req-013 | Processing transaction | {"amount": 1200}
+[2024-05-01 10:00:17] | ERROR | [payment-service] | req-014 | Insufficient Funds | {"user_id": 167, "balance": 2.15}
+[2024-05-01 10:00:18] | INFO | [auth-service] | req-015 | User login successful | {"user_id": 101, "ip": "192.168.1.99"}
+[2024-05-01 10:00:19] | DEBUG | [payment-service] | req-016 | Processing transaction | {"amount": 450}
+[2024-05-01 10:00:20] | ERROR | [payment-service] | req-017 | Connection timeout | {"user_id": 144, "retry": 2}
+[2024-05-01 10:00:22] | WARN | [risk-engine] | req-018 | High latency detected | {"latency_ms": 2200}
+[2024-05-01 10:00:22] | INFO | [auth-service] | req-019 | Token refreshed | {"user_id": 111}
+[2024-05-01 10:00:24] | DEBUG | [payment-service] | req-020 | Processing transaction | {"amount": 3000}

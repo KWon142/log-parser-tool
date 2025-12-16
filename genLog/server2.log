@@ -1,0 +1,200 @@
+[2024-05-01 10:00:01] | ERROR | [payment-service] | req-001 | Insufficient Funds | {"user_id": 133, "balance": 41.58}
+[2024-05-01 10:00:02] | WARN | [risk-engine] | req-002 | High latency detected | {"latency_ms": 2018}
+[2024-05-01 10:00:05] | ERROR | [payment-service] | req-003 | Connection timeout | {"user_id": 168, "retry": 1}
+[2024-05-01 10:00:08] | DEBUG | [payment-service] | req-004 | Processing transaction | {"amount": 2340}
+[2024-05-01 10:00:11] | INFO | [auth-service] | req-005 | User login successful | {"user_id": 112, "ip": "192.168.1.61"}
+[2024-05-01 10:00:14] | INFO | [auth-service] | req-006 | Token refreshed | {"user_id": 152}
+[2024-05-01 10:00:17] | INFO | [auth-service] | req-007 | User login successful | {"user_id": 101, "ip": "192.168.1.89"}
+[2024-05-01 10:00:19] | INFO | [auth-service] | req-008 | User login successful | {"user_id": 139, "ip": "192.168.1.233"}
+[2024-05-01 10:00:22] | ERROR | [payment-service] | req-009 | Insufficient Funds | {"user_id": 197, "balance": 33.76}
+[2024-05-01 10:00:25] | INFO | [auth-service] | req-010 | Token refreshed | {"user_id": 185}
+[2024-05-01 10:00:28] | ERROR | [payment-service] | req-011 | Insufficient Funds | {"user_id": 107, "balance": 5.91}
+[2024-05-01 10:00:31] | INFO | [auth-service] | req-012 | Token refreshed | {"user_id": 138}
+[2024-05-01 10:00:32] | ERROR | [payment-service] | req-013 | Connection timeout | {"user_id": 186, "retry": 2}
+[2024-05-01 10:00:33] | DEBUG | [payment-service] | req-016 | Processing transaction | {"amount": 1200}
+[2024-05-01 10:00:36] | ERROR | [payment-service] | req-015 | Connection timeout | {"user_id": 167, "retry": 3}
+[2024-05-01 10:00:38] | ERROR | [payment-service] | req-016 | Insufficient Funds | {"user_id": 141, "balance": 6.45}
+[2024-05-01 10:00:41] | INFO | [auth-service] | req-017 | User login successful | {"user_id": 186, "ip": "192.168.1.145"}
+[2024-05-01 10:00:43] | ERROR | [payment-service] | req-018 | Connection timeout | {"user_id": 126, "retry": 1}
+[2024-05-01 10:00:45] | ERROR | [payment-service] | req-019 | Insufficient Funds | {"user_id": 129, "balance": 41.58}
+[2024-05-01 10:00:46] | ERROR | [payment-service] | req-020 | Connection timeout | {"user_id": 162, "retry": 1}
+[2024-05-01 10:00:47] | ERROR | [payment-service] | req-021 | Insufficient Funds | {"user_id": 180, "balance": 10.51}
+[2024-05-01 10:00:49] | INFO | [auth-service] | req-022 | User login successful | {"user_id": 125, "ip": "192.168.1.152"}
+[2024-05-01 10:00:52] | INFO | [auth-service] | req-023 | User login successful | {"user_id": 157, "ip": "192.168.1.189"}
+[2024-05-01 10:00:53] | ERROR | [payment-service] | req-024 | Connection timeout | {"user_id": 115, "retry": 1}
+[2024-05-01 10:00:55] | ERROR | [payment-service] | req-025 | Insufficient Funds | {"user_id": 177, "balance": 30.83}
+[2024-05-01 10:00:58] | INFO | [auth-service] | req-026 | User login successful | {"user_id": 148, "ip": "192.168.1.6"}
+[2024-05-01 10:00:59] | WARN | [risk-engine] | req-027 | High latency detected | {"latency_ms": 2765}
+[2024-05-01 10:01:01] | INFO | [auth-service] | req-028 | User login successful | {"user_id": 198, "ip": "192.168.1.108"}
+BROKEN_LINE_GARBAGE_DATA_37547
+[2024-05-01 10:01:04] | ERROR | [payment-service] | req-029 | Connection timeout | {"user_id": 139, "retry": 2}
+[2024-05-01 10:01:05] | DEBUG | [payment-service] | req-030 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:01:06] | ERROR | [payment-service] | req-031 | Insufficient Funds | {"user_id": 174, "balance": 42.63}
+[2024-05-01 10:01:09] | ERROR | [payment-service] | req-032 | Insufficient Funds | {"user_id": 185, "balance": 2.15}
+[2024-05-01 10:01:11] | WARN | [risk-engine] | req-033 | High latency detected | {"latency_ms": 3928}
+[2024-05-01 10:01:12] | WARN | [risk-engine] | req-034 | High latency detected | {"latency_ms": 1959}
+[2024-05-01 10:01:13] | WARN | [risk-engine] | req-035 | High latency detected | {"latency_ms": 1414}
+[2024-05-01 10:01:14] | INFO | [auth-service] | req-036 | User login successful | {"user_id": 189, "ip": "192.168.1.191"}
+[2024-05-01 10:01:16] | INFO | [auth-service] | req-037 | Token refreshed | {"user_id": 146}
+[2024-05-01 10:01:18] | DEBUG | [payment-service] | req-038 | Processing transaction | {"amount": 500}
+[2024-05-01 10:01:19] | WARN | [risk-engine] | req-039 | High latency detected | {"latency_ms": 4214}
+[2024-05-01 10:01:20] | DEBUG | [payment-service] | req-040 | Processing transaction | {"amount": 450}
+[2024-05-01 10:01:23] | INFO | [auth-service] | req-041 | Token refreshed | {"user_id": 106}
+[2024-05-01 10:01:24] | WARN | [risk-engine] | req-042 | High latency detected | {"latency_ms": 4986}
+[2024-05-01 10:01:26] | WARN | [risk-engine] | req-043 | High latency detected | {"latency_ms": 2605}
+[2024-05-01 10:01:27] | WARN | [risk-engine] | req-044 | High latency detected | {"latency_ms": 3633}
+[2024-05-01 10:01:29] | ERROR | [payment-service] | req-045 | Insufficient Funds | {"user_id": 195, "balance": 20.01}
+[2024-05-01 10:01:32] | ERROR | [payment-service] | req-046 | Insufficient Funds | {"user_id": 145, "balance": 15.51}
+[2024-05-01 10:01:35] | DEBUG | [payment-service] | req-047 | Processing transaction | {"amount": 500}
+[2024-05-01 10:01:38] | ERROR | [payment-service] | req-048 | Insufficient Funds | {"user_id": 143, "balance": 6.55}
+[2024-05-01 10:01:39] | ERROR | [payment-service] | req-049 | Insufficient Funds | {"user_id": 153, "balance": 43.59}
+[2024-05-01 10:01:41] | INFO | [auth-service] | req-050 | Token refreshed | {"user_id": 199}
+[2024-05-01 10:01:43] | ERROR | [payment-service] | req-051 | Insufficient Funds | {"user_id": 111, "balance": 23.17}
+[2024-05-01 10:01:46] | ERROR | [payment-service] | req-052 | Insufficient Funds | {"user_id": 173, "balance": 8.63}
+[2024-05-01 10:01:47] | DEBUG | [payment-service] | req-053 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:01:49] | INFO | [auth-service] | req-054 | Token refreshed | {"user_id": 198}
+[2024-05-01 10:01:51] | INFO | [auth-service] | req-055 | User login successful | {"user_id": 154, "ip": "192.168.1.231"}
+[2024-05-01 10:01:53] | WARN | [risk-engine] | req-056 | High latency detected | {"latency_ms": 1088}
+[2024-05-01 10:01:56] | INFO | [auth-service] | req-057 | Token refreshed | {"user_id": 114}
+[2024-05-01 10:01:58] | INFO | [auth-service] | req-058 | User login successful | {"user_id": 160, "ip": "192.168.1.151"}
+[2024-05-01 10:01:59] | WARN | [risk-engine] | req-059 | High latency detected | {"latency_ms": 2664}
+[2024-05-01 10:02:01] | ERROR | [payment-service] | req-060 | Connection timeout | {"user_id": 136, "retry": 3}
+[2024-05-01 10:02:03] | ERROR | [payment-service] | req-061 | Insufficient Funds | {"user_id": 171, "balance": 19.56}
+[2024-05-01 10:02:06] | DEBUG | [payment-service] | req-062 | Processing transaction | {"amount": 2340}
+[2024-05-01 10:02:08] | ERROR | [payment-service] | req-063 | Insufficient Funds | {"user_id": 110, "balance": 9.66}
+[2024-05-01 10:02:09] | ERROR | [payment-service] | req-064 | Insufficient Funds | {"user_id": 122, "balance": 23.54}
+[2024-05-01 10:02:12] | DEBUG | [payment-service] | req-065 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:02:14] | INFO | [auth-service] | req-066 | Token refreshed | {"user_id": 157}
+[2024-05-01 10:02:17] | INFO | [auth-service] | req-067 | Token refreshed | {"user_id": 154}
+[2024-05-01 10:02:20] | INFO | [auth-service] | req-068 | User login successful | {"user_id": 138, "ip": "192.168.1.32"}
+[2024-05-01 10:02:22] | ERROR | [payment-service] | req-069 | Connection timeout | {"user_id": 153, "retry": 2}
+[2024-05-01 10:02:24] | ERROR | [payment-service] | req-070 | Insufficient Funds | {"user_id": 163, "balance": 47.15}
+[2024-05-01 10:02:27] | INFO | [auth-service] | req-071 | User login successful | {"user_id": 112, "ip": "192.168.1.96"}
+[2024-05-01 10:02:28] | ERROR | [payment-service] | req-072 | Connection timeout | {"user_id": 172, "retry": 2}
+[2024-05-01 10:02:31] | ERROR | [payment-service] | req-073 | Connection timeout | {"user_id": 168, "retry": 2}
+BROKEN_LINE_GARBAGE_DATA_20974
+[2024-05-01 10:02:32] | DEBUG | [payment-service] | req-074 | Processing transaction | {"amount": 500}
+[2024-05-01 10:02:35] | INFO | [auth-service] | req-075 | User login successful | {"user_id": 122, "ip": "192.168.1.11"}
+[2024-05-01 10:02:37] | ERROR | [payment-service] | req-076 | Insufficient Funds | {"user_id": 181, "balance": 47.21}
+[2024-05-01 10:02:40] | ERROR | [payment-service] | req-077 | Insufficient Funds | {"user_id": 110, "balance": 6.96}
+[2024-05-01 10:02:41] | DEBUG | [payment-service] | req-078 | Processing transaction | {"amount": 450}
+[2024-05-01 10:02:43] | ERROR | [payment-service] | req-079 | Insufficient Funds | {"user_id": 108, "balance": 47.56}
+[2024-05-01 10:02:46] | INFO | [auth-service] | req-080 | Token refreshed | {"user_id": 146}
+[2024-05-01 10:02:47] | INFO | [auth-service] | req-081 | User login successful | {"user_id": 151, "ip": "192.168.1.250"}
+[2024-05-01 10:02:50] | WARN | [risk-engine] | req-082 | High latency detected | {"latency_ms": 4856}
+[2024-05-01 10:02:51] | ERROR | [payment-service] | req-083 | Connection timeout | {"user_id": 112, "retry": 2}
+[2024-05-01 10:02:52] | ERROR | [payment-service] | req-084 | Insufficient Funds | {"user_id": 187, "balance": 9.1}
+[2024-05-01 10:02:54] | INFO | [auth-service] | req-085 | Token refreshed | {"user_id": 100}
+[2024-05-01 10:02:55] | ERROR | [payment-service] | req-086 | Connection timeout | {"user_id": 120, "retry": 3}
+[2024-05-01 10:02:57] | INFO | [auth-service] | req-087 | Token refreshed | {"user_id": 175}
+[2024-05-01 10:02:59] | INFO | [auth-service] | req-088 | Token refreshed | {"user_id": 190}
+[2024-05-01 10:03:02] | WARN | [risk-engine] | req-089 | High latency detected | {"latency_ms": 2573}
+[2024-05-01 10:03:05] | INFO | [auth-service] | req-090 | User login successful | {"user_id": 134, "ip": "192.168.1.3"}
+[2024-05-01 10:03:08] | WARN | [risk-engine] | req-091 | High latency detected | {"latency_ms": 3232}
+[2024-05-01 10:03:09] | ERROR | [payment-service] | req-092 | Connection timeout | {"user_id": 184, "retry": 2}
+[2024-05-01 10:03:10] | INFO | [auth-service] | req-093 | User login successful | {"user_id": 120, "ip": "192.168.1.88"}
+[2024-05-01 10:03:12] | INFO | [auth-service] | req-094 | Token refreshed | {"user_id": 140}
+BROKEN_LINE_GARBAGE_DATA_56285
+[2024-05-01 10:03:13] | WARN | [risk-engine] | req-095 | High latency detected | {"latency_ms": 3827}
+[2024-05-01 10:03:14] | DEBUG | [payment-service] | req-096 | Processing transaction | {"amount": 450}
+[2024-05-01 10:03:16] | INFO | [auth-service] | req-097 | Token refreshed | {"user_id": 145}
+[2024-05-01 10:03:17] | ERROR | [payment-service] | req-098 | Insufficient Funds | {"user_id": 154, "balance": 31.11}
+[2024-05-01 10:03:19] | INFO | [auth-service] | req-099 | User login successful | {"user_id": 180, "ip": "192.168.1.149"}
+[2024-05-01 10:03:20] | INFO | [auth-service] | req-100 | User login successful | {"user_id": 133, "ip": "192.168.1.194"}
+[2024-05-01 10:03:22] | DEBUG | [payment-service] | req-101 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:03:24] | ERROR | [payment-service] | req-102 | Connection timeout | {"user_id": 111, "retry": 1}
+[2024-05-01 10:03:25] | ERROR | [payment-service] | req-103 | Connection timeout | {"user_id": 140, "retry": 2}
+[2024-05-01 10:03:27] | INFO | [auth-service] | req-104 | User login successful | {"user_id": 199, "ip": "192.168.1.122"}
+[2024-05-01 10:03:30] | DEBUG | [payment-service] | req-105 | Processing transaction | {"amount": 450}
+[2024-05-01 10:03:31] | ERROR | [payment-service] | req-106 | Insufficient Funds | {"user_id": 160, "balance": 7.15}
+[2024-05-01 10:03:34] | WARN | [risk-engine] | req-107 | High latency detected | {"latency_ms": 4631}
+[2024-05-01 10:03:36] | INFO | [auth-service] | req-108 | User login successful | {"user_id": 135, "ip": "192.168.1.18"}
+[2024-05-01 10:03:39] | ERROR | [payment-service] | req-109 | Connection timeout | {"user_id": 138, "retry": 3}
+BROKEN_LINE_GARBAGE_DATA_35998
+[2024-05-01 10:03:41] | WARN | [risk-engine] | req-110 | High latency detected | {"latency_ms": 2511}
+[2024-05-01 10:03:43] | DEBUG | [payment-service] | req-111 | Processing transaction | {"amount": 500}
+[2024-05-01 10:03:45] | ERROR | [payment-service] | req-112 | Connection timeout | {"user_id": 149, "retry": 1}
+[2024-05-01 10:03:48] | ERROR | [payment-service] | req-113 | Connection timeout | {"user_id": 172, "retry": 1}
+[2024-05-01 10:03:50] | WARN | [risk-engine] | req-114 | High latency detected | {"latency_ms": 3757}
+[2024-05-01 10:03:51] | ERROR | [payment-service] | req-115 | Insufficient Funds | {"user_id": 137, "balance": 36.08}
+[2024-05-01 10:03:52] | DEBUG | [payment-service] | req-116 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:03:54] | INFO | [auth-service] | req-117 | User login successful | {"user_id": 165, "ip": "192.168.1.238"}
+[2024-05-01 10:03:55] | INFO | [auth-service] | req-118 | User login successful | {"user_id": 156, "ip": "192.168.1.50"}
+[2024-05-01 10:03:57] | INFO | [auth-service] | req-119 | Token refreshed | {"user_id": 120}
+[2024-05-01 10:03:58] | ERROR | [payment-service] | req-120 | Insufficient Funds | {"user_id": 191, "balance": 38.96}
+[2024-05-01 10:04:00] | INFO | [auth-service] | req-121 | User login successful | {"user_id": 173, "ip": "192.168.1.116"}
+[2024-05-01 10:04:01] | ERROR | [payment-service] | req-122 | Insufficient Funds | {"user_id": 156, "balance": 49.65}
+[2024-05-01 10:04:02] | WARN | [risk-engine] | req-123 | High latency detected | {"latency_ms": 1158}
+[2024-05-01 10:04:05] | DEBUG | [payment-service] | req-124 | Processing transaction | {"amount": 450}
+[2024-05-01 10:04:07] | ERROR | [payment-service] | req-125 | Insufficient Funds | {"user_id": 174, "balance": 1.62}
+[2024-05-01 10:04:10] | DEBUG | [payment-service] | req-126 | Processing transaction | {"amount": 500}
+[2024-05-01 10:04:13] | WARN | [risk-engine] | req-127 | High latency detected | {"latency_ms": 1412}
+[2024-05-01 10:04:14] | ERROR | [payment-service] | req-128 | Connection timeout | {"user_id": 122, "retry": 1}
+[2024-05-01 10:04:17] | INFO | [auth-service] | req-129 | User login successful | {"user_id": 127, "ip": "192.168.1.130"}
+[2024-05-01 10:04:19] | ERROR | [payment-service] | req-130 | Insufficient Funds | {"user_id": 134, "balance": 25.82}
+[2024-05-01 10:04:21] | ERROR | [payment-service] | req-131 | Connection timeout | {"user_id": 114, "retry": 1}
+[2024-05-01 10:04:24] | DEBUG | [payment-service] | req-132 | Processing transaction | {"amount": 450}
+[2024-05-01 10:04:25] | DEBUG | [payment-service] | req-133 | Processing transaction | {"amount": 1200}
+[2024-05-01 10:04:26] | ERROR | [payment-service] | req-134 | Connection timeout | {"user_id": 146, "retry": 2}
+[2024-05-01 10:04:28] | INFO | [auth-service] | req-135 | User login successful | {"user_id": 129, "ip": "192.168.1.176"}
+[2024-05-01 10:04:29] | INFO | [auth-service] | req-136 | User login successful | {"user_id": 110, "ip": "192.168.1.23"}
+[2024-05-01 10:04:30] | INFO | [auth-service] | req-137 | User login successful | {"user_id": 160, "ip": "192.168.1.123"}
+[2024-05-01 10:04:33] | INFO | [auth-service] | req-138 | User login successful | {"user_id": 126, "ip": "192.168.1.58"}
+[2024-05-01 10:04:34] | ERROR | [payment-service] | req-139 | Insufficient Funds | {"user_id": 132, "balance": 46.96}
+[2024-05-01 10:04:35] | ERROR | [payment-service] | req-140 | Insufficient Funds | {"user_id": 106, "balance": 31.18}
+[2024-05-01 10:04:36] | WARN | [risk-engine] | req-141 | High latency detected | {"latency_ms": 1668}
+[2024-05-01 10:04:38] | ERROR | [payment-service] | req-142 | Connection timeout | {"user_id": 141, "retry": 2}
+[2024-05-01 10:04:41] | ERROR | [payment-service] | req-143 | Connection timeout | {"user_id": 132, "retry": 2}
+[2024-05-01 10:04:42] | DEBUG | [payment-service] | req-144 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:04:45] | INFO | [auth-service] | req-145 | User login successful | {"user_id": 167, "ip": "192.168.1.68"}
+[2024-05-01 10:04:47] | INFO | [auth-service] | req-146 | Token refreshed | {"user_id": 117}
+[2024-05-01 10:04:50] | DEBUG | [payment-service] | req-147 | Processing transaction | {"amount": 450}
+[2024-05-01 10:04:53] | INFO | [auth-service] | req-148 | Token refreshed | {"user_id": 126}
+[2024-05-01 10:04:54] | WARN | [risk-engine] | req-149 | High latency detected | {"latency_ms": 4847}
+[2024-05-01 10:04:57] | ERROR | [payment-service] | req-150 | Connection timeout | {"user_id": 125, "retry": 2}
+[2024-05-01 10:05:00] | WARN | [risk-engine] | req-151 | High latency detected | {"latency_ms": 2388}
+[2024-05-01 10:05:02] | DEBUG | [payment-service] | req-152 | Processing transaction | {"amount": 2340}
+[2024-05-01 10:05:05] | DEBUG | [payment-service] | req-153 | Processing transaction | {"amount": 1200}
+BROKEN_LINE_GARBAGE_DATA_28755
+[2024-05-01 10:05:07] | ERROR | [payment-service] | req-154 | Connection timeout | {"user_id": 184, "retry": 3}
+[2024-05-01 10:05:08] | DEBUG | [payment-service] | req-155 | Processing transaction | {"amount": 500}
+[2024-05-01 10:05:10] | INFO | [auth-service] | req-156 | Token refreshed | {"user_id": 108}
+[2024-05-01 10:05:12] | ERROR | [payment-service] | req-157 | Connection timeout | {"user_id": 146, "retry": 2}
+[2024-05-01 10:05:14] | INFO | [auth-service] | req-158 | User login successful | {"user_id": 122, "ip": "192.168.1.185"}
+[2024-05-01 10:05:17] | ERROR | [payment-service] | req-159 | Insufficient Funds | {"user_id": 142, "balance": 35.73}
+[2024-05-01 10:05:18] | DEBUG | [payment-service] | req-160 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:05:20] | DEBUG | [payment-service] | req-161 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:05:21] | DEBUG | [payment-service] | req-162 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:05:24] | DEBUG | [payment-service] | req-163 | Processing transaction | {"amount": 1200}
+[2024-05-01 10:05:27] | ERROR | [payment-service] | req-164 | Connection timeout | {"user_id": 195, "retry": 1}
+[2024-05-01 10:05:30] | INFO | [auth-service] | req-165 | User login successful | {"user_id": 176, "ip": "192.168.1.105"}
+BROKEN_LINE_GARBAGE_DATA_35639
+BROKEN_LINE_GARBAGE_DATA_12290
+[2024-05-01 10:05:32] | INFO | [auth-service] | req-166 | User login successful | {"user_id": 104, "ip": "192.168.1.127"}
+[2024-05-01 10:05:35] | WARN | [risk-engine] | req-167 | High latency detected | {"latency_ms": 1764}
+[2024-05-01 10:05:36] | WARN | [risk-engine] | req-168 | High latency detected | {"latency_ms": 4661}
+[2024-05-01 10:05:39] | INFO | [auth-service] | req-169 | User login successful | {"user_id": 107, "ip": "192.168.1.243"}
+BROKEN_LINE_GARBAGE_DATA_38218
+[2024-05-01 10:05:40] | WARN | [risk-engine] | req-170 | High latency detected | {"latency_ms": 4279}
+[2024-05-01 10:05:41] | INFO | [auth-service] | req-171 | User login successful | {"user_id": 187, "ip": "192.168.1.9"}
+[2024-05-01 10:05:43] | INFO | [auth-service] | req-172 | Token refreshed | {"user_id": 123}
+[2024-05-01 10:05:45] | ERROR | [payment-service] | req-173 | Insufficient Funds | {"user_id": 135, "balance": 28.63}
+[2024-05-01 10:05:48] | INFO | [auth-service] | req-174 | Token refreshed | {"user_id": 148}
+[2024-05-01 10:05:51] | ERROR | [payment-service] | req-175 | Connection timeout | {"user_id": 125, "retry": 2}
+[2024-05-01 10:05:53] | WARN | [risk-engine] | req-176 | High latency detected | {"latency_ms": 3314}
+[2024-05-01 10:05:56] | INFO | [auth-service] | req-177 | Token refreshed | {"user_id": 118}
+[2024-05-01 10:05:58] | ERROR | [payment-service] | req-178 | Insufficient Funds | {"user_id": 178, "balance": 20.54}
+[2024-05-01 10:06:01] | WARN | [risk-engine] | req-179 | High latency detected | {"latency_ms": 2470}
+[2024-05-01 10:06:03] | WARN | [risk-engine] | req-180 | High latency detected | {"latency_ms": 2046}
+[2024-05-01 10:06:06] | INFO | [auth-service] | req-181 | User login successful | {"user_id": 133, "ip": "192.168.1.246"}
+[2024-05-01 10:06:07] | WARN | [risk-engine] | req-182 | High latency detected | {"latency_ms": 4872}
+[2024-05-01 10:06:09] | WARN | [risk-engine] | req-183 | High latency detected | {"latency_ms": 3550}
+[2024-05-01 10:06:12] | ERROR | [payment-service] | req-184 | Insufficient Funds | {"user_id": 196, "balance": 22.38}
+[2024-05-01 10:06:15] | ERROR | [payment-service] | req-185 | Connection timeout | {"user_id": 121, "retry": 1}
+[2024-05-01 10:06:18] | ERROR | [payment-service] | req-186 | Connection timeout | {"user_id": 106, "retry": 1}
+[2024-05-01 10:06:19] | INFO | [auth-service] | req-187 | User login successful | {"user_id": 138, "ip": "192.168.1.170"}
+[2024-05-01 10:06:22] | ERROR | [payment-service] | req-188 | Connection timeout | {"user_id": 192, "retry": 3}
+[2024-05-01 10:06:23] | DEBUG | [payment-service] | req-189 | Processing transaction | {"amount": 3000}
+[2024-05-01 10:06:26] | INFO | [auth-service] | req-190 | User login successful | {"user_id": 118, "ip": "192.168.1.151"}
+BROKEN_LINE_GARBAGE_DATA_12946
+[2024-05-01 10:06:28] | DEBUG | [payment-service] | req-191 | Processing transaction | {"amount": 2340}

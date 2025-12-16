@@ -1,0 +1,38 @@
+{
+    "summary": {
+        "total_errors": 5,
+        "unique_affected_users": 5
+    },
+    "errors": [
+        {
+            "timestamp": "2024-05-01 10:00:04",
+            "service": "payment-service",
+            "message": "Connection timeout",
+            "user_id": 112
+        },
+        {
+            "timestamp": "2024-05-01 10:00:07",
+            "service": "payment-service",
+            "message": "Insufficient Funds",
+            "user_id": 105
+        },
+        {
+            "timestamp": "2024-05-01 10:00:09",
+            "service": "payment-service",
+            "message": "Connection timeout",
+            "user_id": 155
+        },
+        {
+            "timestamp": "2024-05-01 10:00:17",
+            "service": "payment-service",
+            "message": "Insufficient Funds",
+            "user_id": 167
+        },
+        {
+            "timestamp": "2024-05-01 10:00:20",
+            "service": "payment-service",
+            "message": "Connection timeout",
+            "user_id": 144
+        }
+    ]
+}
