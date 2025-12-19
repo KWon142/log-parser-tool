@@ -1,37 +1,33 @@
 # File: parser.py
 
 import argparse
-import re
 import json
+import re
 import sys
-import os
-from typing import Dict, Any, Optional, List
 from collections import Counter
+from typing import Any, Dict, List, Optional
 
+# Constants should be UPPER_CASE
 LOG_PATTERN = re.compile(
     r"^\[(.*?)\] \| (\w+) \| \[(.*?)\] \| (.*?) \| (.*?) \| (\{.*\})$"
 )
 
 
 def parse_line(line: str) -> Optional[Dict[str, Any]]:
-    # Stripping Whitespace
+    """Parse a single line of log into a dictionary."""
     line = line.strip()
-    # Regex Matching
     match = LOG_PATTERN.match(line)
 
     if not match:
-        return None  # safety return for malformed lines
+        return None
 
-    # Unpacking Groups
     timestamp, level, service, req_id, message, metadata_str = match.groups()
 
-    # JSON Parsing
     try:
         metadata = json.loads(metadata_str)
     except json.JSONDecodeError:
-        return None  # safety return for malformed JSON
+        return None
 
-    # Returning Parsed Data with Dictionary type
     return {
         "timestamp": timestamp,
         "level": level,
@@ -42,40 +38,45 @@ def parse_line(line: str) -> Optional[Dict[str, Any]]:
     }
 
 
-def parserArguments(args=None):
+def parse_arguments(args: Optional[List[str]] = None) -> argparse.Namespace:
+    """Parse command line arguments."""
     parser = argparse.ArgumentParser(
         description="Process log files and extract error information."
     )
 
-    # ful_path = os.path.abspath(__file__)
     parser.add_argument(
         "-i",
-        "--input",  # add - i replace for --input || Ver1.1
+        "--input",
+        dest="input_path",  # Map --input to variable 'input_path'
         required=True,
-        help=f"Path to the input log file.",
+        help="Path to the input log file.",
     )
     parser.add_argument(
         "-o",
-        "--output",  # add - o replace for --output || Ver1.1
+        "--output",
+        dest="output_path",
         required=True,
         help="Path to the output report file.",
     )
     parser.add_argument(
         "-v",
-        "--verbose",  # add - v replace for --verbose || Ver1.1
+        "--verbose",
         action="store_true",
         help="Enable all output information.",
     )
+
+    # Allow passing args list for easier testing
     return parser.parse_args(args)
 
 
-def processLogFile(input, verbose=False) -> Optional[Dict[str, Any]]:
+def process_log_file(input_path: str, verbose: bool = False) -> List[Dict[str, Any]]:
+    """Read log file and filter ERROR logs."""
     total_lines = 0
     malformed_lines = 0
     errors_list: List[Dict[str, Any]] = []
 
     try:
-        with open(input, "r", encoding="utf-8") as f:
+        with open(input_path, "r", encoding="utf-8") as f:
             for line in f:
                 total_lines += 1
                 parsed_data = parse_line(line)
@@ -94,22 +95,24 @@ def processLogFile(input, verbose=False) -> Optional[Dict[str, Any]]:
                         "user_id": user_id,
                     }
                     errors_list.append(error_record)
+
         if verbose:
-            print(f"Processing {input}...")
-            print(
-                "---------------------------------------------------------------------------------"
-            )
+            print(f"Processing {input_path}...")
+            print("-" * 80)
             print(f"\nTotal Lines Processed: {total_lines}")
             print(f"Malformed Lines Skipped: {malformed_lines}")
 
     except FileNotFoundError:
-        print(f"Error: File '{input}' not found.")
+        print(f"Error: File '{input_path}' not found.")
         sys.exit(1)
 
     return errors_list
 
 
-def processError(errors_list: List[Dict[str, Any]], output, verbose=False) -> None:
+def process_errors(
+    errors_list: List[Dict[str, Any]], output_path: str, verbose: bool = False
+) -> List[Dict[str, Any]]:
+    """Analyze errors and write report to JSON."""
     total_errors = len(errors_list)
     error_messages = [e["message"] for e in errors_list]
     error_counts = Counter(error_messages)
@@ -119,9 +122,7 @@ def processError(errors_list: List[Dict[str, Any]], output, verbose=False) -> No
     unique_users_count = len(user_counts)
 
     if verbose:
-        print(
-            "---------------------------------------------------------------------------------"
-        )
+        print("-" * 80)
         print(f"\nTotal Errors Found: {total_errors}")
 
         print("\nTop Error Messages:")
@@ -132,10 +133,8 @@ def processError(errors_list: List[Dict[str, Any]], output, verbose=False) -> No
         for user, count in user_counts.items():
             print(f" - User ID: {user} ({count} errors)")
 
-        print(
-            "---------------------------------------------------------------------------------"
-        )
-        print(f"\nReport saved to {output}")
+        print("-" * 80)
+        print(f"\nReport saved to {output_path}")
 
     report_data = {
         "summary": {
@@ -145,21 +144,21 @@ def processError(errors_list: List[Dict[str, Any]], output, verbose=False) -> No
         "errors": errors_list,
     }
 
-    with open(output, "w", encoding="utf-8") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(report_data, f, indent=4)
 
     return errors_list
 
 
 def main():
-    # Parsing Command Line Arguments
-    args = parserArguments()
+    # 1. Parsing Arguments
+    args = parse_arguments()
 
-    # Processing Log File
-    errorCollection = processLogFile(args.input, args.verbose)
+    # 2. Processing Log File
+    error_collection = process_log_file(args.input_path, args.verbose)
 
-    # Collecting Errors and Generating Report
-    processError(errorCollection, args.output, args.verbose)
+    # 3. Generating Report
+    process_errors(error_collection, args.output_path, args.verbose)
 
 
 if __name__ == "__main__":

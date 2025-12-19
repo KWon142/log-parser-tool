@@ -9,9 +9,18 @@ wheels/
 # Virtual environments
 .venv
 
+# Self-generated files
+todo.md
+server.log
+report.json
+tests/FizzBuzzApplication/
+
+
 echo ".venv/" >> .gitignore
 echo "__pycache__/" >> .gitignore
 echo "*.pyc" >> .gitignore
 echo ".DS_Store" >> .gitignore
 echo "server.log" >> .gitignore
 echo "report.json" >> .gitignore
+echo "todo.md" >> .gitignore
+echo "tests/FizzBuzzApplication/" >> .gitignore

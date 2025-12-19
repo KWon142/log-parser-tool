@@ -4,7 +4,7 @@ filename = "server.log"
 log_counts = Counter()
 
 
-def analyzeLog():
+def analyze_log():
     log_counts = Counter()
 
     try:
@@ -26,7 +26,7 @@ def analyzeLog():
 
 def main():
     print("Hello from test-project!")
-    analyzeLog()
+    analyze_log()
 
 
 if __name__ == "__main__":

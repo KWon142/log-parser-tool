@@ -1,26 +1,31 @@
-import pytest
 import json
-import os
-import sys
+import pytest
 
-# Add parent directory to sys.path to allow importing parser.py
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Đã xóa import sys (F401 fixed)
+from parser import parse_line, parse_arguments, process_log_file, process_errors
 
-from parser import parse_line, processLogFile, processError
 
-# --- FIXTURES (Reusable Sample Data) ---
+# --- FIXTURES (Sample Data) ---
 
 
 @pytest.fixture
 def sample_log_line_valid():
     """Returns a valid INFO log line sample."""
-    return '[2025-12-16 10:00:00] | INFO | [AuthService] | req-123 | User logged in | {"user_id": 101, "ip": "192.168.1.1"}'
+    # Ngắt dòng string dài (E501 fixed)
+    return (
+        "[2025-12-16 10:00:00] | INFO | [AuthService] | req-123 | "
+        'User logged in | {"user_id": 101, "ip": "192.168.1.1"}'
+    )
 
 
 @pytest.fixture
 def sample_log_line_error():
     """Returns a valid ERROR log line sample."""
-    return '[2025-12-16 10:05:00] | ERROR | [PaymentService] | req-456 | Payment failed | {"user_id": 102, "error_code": 500}'
+    # Ngắt dòng string dài (E501 fixed)
+    return (
+        "[2025-12-16 10:05:00] | ERROR | [PaymentService] | req-456 | "
+        'Payment failed | {"user_id": 102, "error_code": 500}'
+    )
 
 
 @pytest.fixture
@@ -35,7 +40,7 @@ def sample_log_line_bad_json():
     return "[2025-12-16 10:00:00] | INFO | [Service] | req-1 | Msg | {invalid_json}"
 
 
-# --- UNIT TESTS ---
+# --- TEST: parse_line ---
 
 
 def test_parse_line_success(sample_log_line_valid):
@@ -61,64 +66,81 @@ def test_parse_line_bad_json(sample_log_line_bad_json):
     assert result is None
 
 
+# --- TEST: parse_arguments ---
+
+
+def test_parse_arguments_valid():
+    """Test parsing valid command-line arguments."""
+    # Simulate arguments passed from the terminal
+    args_list = ["-i", "input.log", "-o", "output.json", "-v"]
+    args = parse_arguments(args_list)
+
+    # Verify if argparse maps arguments correctly to variables
+    assert args.input_path == "input.log"
+    assert args.output_path == "output.json"
+    assert args.verbose is True
+
+
+def test_parse_arguments_missing_required():
+    """Test behavior when required arguments are missing (expecting exit)."""
+    # Missing input argument (-i)
+    args_list = ["-o", "output.json"]
+
+    # argparse invokes sys.exit(2) when arguments are missing
+    with pytest.raises(SystemExit):
+        parse_arguments(args_list)
+
+
+# --- TEST: process_log_file ---
+
+
 def test_process_log_file(tmp_path, sample_log_line_valid, sample_log_line_error):
-    """
-    Test reading and filtering logs from a file.
-    Uses 'tmp_path' fixture to create temporary files isolated from the OS.
-    """
-    # 1. Create a dummy log file in the temp directory
-    d = tmp_path / "logs"
-    d.mkdir()
-    p = d / "test.log"
-
-    # Write mixed content: 1 Valid INFO, 1 Valid ERROR, 1 Malformed
+    """Test file reading logic and ERROR filtering."""
+    # 1. Create a dummy log file in the temporary directory
+    log_file = tmp_path / "test.log"
     content = f"{sample_log_line_valid}\n{sample_log_line_error}\nInvalid Line"
-    p.write_text(content, encoding="utf-8")
+    log_file.write_text(content, encoding="utf-8")
 
-    # 2. Call the function under test
-    errors = processLogFile(str(p), verbose=False)
+    # 2. Call the function
+    errors = process_log_file(str(log_file), verbose=False)
 
-    # 3. Assertions
-    # Only the ERROR line should be captured
+    # 3. Verify results
     assert len(errors) == 1
     assert errors[0]["service"] == "PaymentService"
     assert errors[0]["user_id"] == 102
 
 
 def test_process_log_file_not_found():
-    """Test behavior when the input file does not exist (expecting SystemExit)."""
+    """Test behavior when the input file does not exist."""
     with pytest.raises(SystemExit):
-        processLogFile("non_existent_file.log")
+        process_log_file("non_existent_file.log")
 
 
-def test_process_error_report(tmp_path):
-    """Test generating the JSON report from a list of errors."""
-    # 1. Prepare input data
+# --- TEST: process_errors ---
+
+
+def test_process_errors_report(tmp_path):
+    """Test statistics calculation and JSON report generation."""
+    # 1. Prepare dummy input data
     errors_list = [
-        {"timestamp": "t1", "service": "S1", "message": "Error A", "user_id": 1},
-        {
-            "timestamp": "t2",
-            "service": "S1",
-            "message": "Error A",
-            "user_id": 1,
-        },  # Duplicate error/user
-        {"timestamp": "t3", "service": "S2", "message": "Error B", "user_id": 2},
+        {"timestamp": "t1", "service": "S1", "message": "Err A", "user_id": 1},
+        {"timestamp": "t2", "service": "S1", "message": "Err A", "user_id": 1},
+        {"timestamp": "t3", "service": "S2", "message": "Err B", "user_id": 2},
     ]
 
-    # 2. Define output path in temp directory
+    # 2. Define temporary output path
     output_file = tmp_path / "report.json"
 
     # 3. Call the function
-    processError(errors_list, str(output_file), verbose=False)
+    process_errors(errors_list, str(output_file), verbose=False)
 
-    # 4. Verify file creation
+    # 4. Verify output file existence
     assert output_file.exists()
 
-    # 5. Read back the JSON to verify logic (counting and structure)
+    # 5. Read back the JSON to verify logic
     with open(output_file, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    # Check statistics logic
     assert data["summary"]["total_errors"] == 3
-    assert data["summary"]["unique_affected_users"] == 2  # User 1 and User 2
+    assert data["summary"]["unique_affected_users"] == 2
     assert len(data["errors"]) == 3

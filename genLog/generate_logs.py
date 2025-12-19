@@ -76,7 +76,11 @@ def generate_logs(num_lines=200):
         meta_json = json.dumps(meta_func())
 
         # Format: [TIMESTAMP] | LEVEL | [SERVICE] | REQ_ID | MSG | JSON
-        line = f"[{timestamp_str}] | {level} | {service} | req-{req_counter:03d} | {msg} | {meta_json}"
+        # Updated (PEP 8 Standard):
+        line = (
+            f"[{timestamp_str}] | {level} | {service} | "
+            f"req-{req_counter:03d} | {msg} | {meta_json}"
+        )
         lines.append(line)
 
         req_counter += 1
