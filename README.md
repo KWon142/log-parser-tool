@@ -1,7 +1,5 @@
 # Log Parser Tool 🛠️
 
-  
-
 
 ## 📖 Index
 - [Log Parser Tool 🛠️](#log-parser-tool-️)
@@ -21,6 +19,7 @@
 
 
 ![Python Version](https://img.shields.io/badge/python-3.12+-blue)
+
 
 ## 🚀 Description
 The **Log Parser Tool** is designed to solve the problem of reading and understanding large system log files (server logs).
