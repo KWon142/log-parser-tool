@@ -1,0 +1,15 @@
+meta {
+  name: Get ISBN
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/simpleapi/randomisbn
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,47 @@
+meta {
+  name: Get album
+  type: http
+  seq: 3
+}
+
+get {
+  url: https://jsonplaceholder.typicode.com/albums/1
+  body: none
+  auth: inherit
+}
+
+assert {
+  res.status: eq 200
+}
+
+tests {
+  test("Status code is 200", function () {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("Check if the ID of the body already exists.", function() {
+    expect(res.getBody().id).to.exists
+  });
+  
+  test("Check content type is json", function() {
+    expect(res.getHeaders()['content-type']).to.contains('application/json');
+  });
+  
+  test(`Check response time is under 5 seconds: ${res.responseTime/1000}s`,    
+      function() {
+        expect(res.responseTime).to.be.below(5000);
+  });
+  
+  // Đây là cú pháp cơ bản của JavaScript để định nghĩa một Callback Function (Hàm gọi lại).
+  
+  // Bạn hãy tưởng tượng hàm test giống như một cái máy đóng gói:
+  
+  // Tham số 1 ("Tên bài test"): Là cái nhãn dán bên ngoài hộp.
+  
+  // Tham số 2 (function() {...}): Là nội dung bên trong hộp.
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

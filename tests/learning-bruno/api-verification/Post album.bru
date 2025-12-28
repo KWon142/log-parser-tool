@@ -1,0 +1,42 @@
+meta {
+  name: Post album
+  type: http
+  seq: 4
+}
+
+post {
+  url: https://jsonplaceholder.typicode.com/albums
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "userId": "500",
+    "title": "Mauritius Financ"
+  }
+}
+
+tests {
+  test("Status code is 201", function () {
+    expect(res.getStatus()).to.equal(201);
+  });
+  
+  test("Check if the ID of the body already exists.", function() {
+    expect(res.getBody().id).to.exists
+  });
+  
+  test("Check content type is json", function() {
+    expect(res.getHeaders()['content-type']).to.contains('application/json');
+  });
+  
+  test(`Check response time is under 5 seconds: ${res.responseTime/1000}s`,    
+      function() {
+        expect(res.responseTime).to.be.below(5000);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
