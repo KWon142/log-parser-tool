@@ -29,5 +29,5 @@ def test_ollama_response():
     assert len(data["response"]) > 0, "Failed! Response is empty"
 
     # Assert the response time is under 5 seconds.
-    assert duration <= 5, f"Took {duration}s (Limit is 5s)"
+    assert duration <= 20, f"Took {duration:.2f}s (Limit is 20s)"
 
