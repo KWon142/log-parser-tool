@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ugly Bookstore</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        /* Just enough CSS to make it readable */
+        body { font-family: sans-serif; padding: 20px; }
+        .book-item { background: #f0f0f0; margin: 5px 0; padding: 5px; }
+        form { margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <h1>The Ugly Bookstore</h1>
+
+    <form id="add-book-form">
+        <h3>Add a New Book</h3>
+        <input type="text" id="title" placeholder="Book Title" required>
+        <input type="text" id="author" placeholder="Author" required>
+        <input type="number" id="year" placeholder="Year" required>
+        <button type="submit" id="submit-btn">Add Book</button>
+    </form>    
+    <form id = "my-custom">
+        <button type="submit" id="submit-btn">Click</button>
+    </form>
+    <h3>Current Inventory</h3>
+    <ul id="books-container">
+        <li>Loading books...</li>
+    </ul>
+    
+    <script>
+        const heading = document.createElement("h1");
+        const headingText = document.createTextNode("Big Head!");
+        
+        async function sprintHeader() {
+            event.preventDefault();
+
+            heading.appendChild((headingText));
+            document.body.appendChild(heading);
+        }
+        document.getElementById("my-custom").addEventListener("submit", sprintHeader);
+
+    </script>    
+
+    <script>
+        const apiUrl = 'http://127.0.0.1:8000/books';
+
+        // 1. Function to Fetch and Render Books (GET)
+        async function fetchBooks() {
+            // const response = await fetch(apiUrl);
+            // const books = await response.json();
+            const books = await fetch(apiUrl)
+                                .then((response) => {
+                                    if (!response.ok) {
+                                    throw new Error(`HTTP error: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .catch((err) => console.error(`Fetch problem: ${err.message}`));
+                            
+
+            const list = document.getElementById('books-container');
+            list.innerHTML = ''; // Clear current list before re-rendering
+
+            books.forEach(book => {
+                const li = document.createElement('li');
+                li.textContent = `${book.title} by ${book.author} (${book.year})`;
+                
+                // REQUIREMENT: Specific Class for the element
+                li.className = 'book-item ';
+                
+                list.appendChild(li);
+            })
+            
+        }
+
+        // 2. Function to Add a Book (POST)
+        async function addBook(event) {
+            event.preventDefault(); // Stop page from refreshing
+
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const year = document.getElementById('year').value;
+
+            // Send data to backend
+            await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, author, year: parseInt(year) })
+            });
+
+            // Refresh the list to show the new book
+            fethBocoks();
+            
+            // Clear the form inputs
+            document.getElementById('add-book-form').reset();
+        }
+
+        // 3. Event Listeners
+        document.getElementById('add-book-form').addEventListener('submit', addBook);
+        
+        // Initial load
+        fetchBooks();
+    </script>
+</body>
+</html>
