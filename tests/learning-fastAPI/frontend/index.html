@@ -18,10 +18,11 @@
 
     <form id="add-book-form">
         <h3>Add a New Book</h3>
-        <input type="text" id="title" placeholder="Book Title" required>
-        <input type="text" id="author" placeholder="Author" required>
-        <input type="number" id="year" placeholder="Year" required>
+        <input type="text" id="title" placeholder="Book Title">
+        <input type="text" id="author" placeholder="Author">
+        <input type="number" id="price" step="0.01" placeholder="Price">
         <button type="submit" id="submit-btn">Add Book</button>
+        <p id="error-message" style="color: red; display: none;"></p>
     </form>    
     <form id = "my-custom">
         <button type="submit" id="submit-btn">Click</button>
@@ -31,7 +32,8 @@
         <li>Loading books...</li>
     </ul>
     
-    <script>
+
+    <!-- <script>
         const heading = document.createElement("h1");
         const headingText = document.createTextNode("Big Head!");
         
@@ -43,7 +45,7 @@
         }
         document.getElementById("my-custom").addEventListener("submit", sprintHeader);
 
-    </script>    
+    </script>     -->
 
     <script>
         const apiUrl = 'http://127.0.0.1:8000/books';
@@ -55,7 +57,7 @@
             const books = await fetch(apiUrl)
                                 .then((response) => {
                                     if (!response.ok) {
-                                    throw new Error(`HTTP error: ${response.status}`);
+                                        throw new Error(`HTTP error: ${response.status}`);
                                     }
                                     return response.json();
                                 })
@@ -67,10 +69,10 @@
 
             books.forEach(book => {
                 const li = document.createElement('li');
-                li.textContent = `${book.title} by ${book.author} (${book.year})`;
+                li.textContent = `${book.title} by ${book.author} (${book.price})`;
                 
                 // REQUIREMENT: Specific Class for the element
-                li.className = 'book-item ';
+                li.className = 'book-item';
                 
                 list.appendChild(li);
             })
@@ -80,20 +82,37 @@
         // 2. Function to Add a Book (POST)
         async function addBook(event) {
             event.preventDefault(); // Stop page from refreshing
+            const msgError = document.getElementById('error-message');
 
             const title = document.getElementById('title').value;
             const author = document.getElementById('author').value;
-            const year = document.getElementById('year').value;
-
+            const price = document.getElementById('price').value;
+            const id = 5;
+            
+            if(!title || !author || !price) {
+                // event.preventDefault();
+                msgError.textContent = "Not fully filled";
+                msgError.style.display = 'block';
+                return
+            }
+            msgError.style.display = 'none';
+            msgError.textContent = '';
+            
             // Send data to backend
             await fetch(apiUrl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title, author, year: parseInt(year) })
+                body: JSON.stringify({ title, author, price: parseFloat(price) })
+            })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+                return response.json();
             });
 
             // Refresh the list to show the new book
-            fethBocoks();
+            fetchBooks();
             
             // Clear the form inputs
             document.getElementById('add-book-form').reset();

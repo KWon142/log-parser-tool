@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Request
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 from functools import wraps
 import inspect
 import asyncio
@@ -42,7 +42,7 @@ def require_language(expected_language: str):
 
 # 1. Define the Data Model
 class Book(BaseModel): 
-    id: int
+    id: Optional[int] = None
     title: str
     author: str
     price: float
@@ -61,14 +61,14 @@ async def root():
     return {"message": "Welcome to the Bookstore API!"}
 
 @app.get("/books/", response_model=List[Book])
-# @require_language("En")
+#@require_language("En")
 async def get_books():
     """
     Retrieve a list of all books in the database.
     """
-    print("Server: Wait 3 to fake process...")
-    await asyncio.sleep(3)
-    print("Server: The process is complete....")
+    # print("Server: Wait 2 to fake process...")
+    # await asyncio.sleep(2)
+    # print("Server: The process is complete....")
     return books_db
     
 @app.get("/books/{book_id}", response_model=Book)
@@ -90,12 +90,20 @@ def create_book(book: Book):
     """
     # Convert Pydantic model( .model_dump() ) to a dictionary
     new_book = book.model_dump()
-    # Check for duplicate ID
-    for book in books_db:
-        if book["id"] == new_book["id"]:
-            raise HTTPException(status_code=400, detail="Book ID already exists")
+
+    if len(books_db) > 0:
+        new_id = books_db[-1]["id"] + 1
+    else:
+        new_id = 1
+    new_book["id"] = new_id
     books_db.append(new_book)
-    return new_book
+    return new_book    
+    # Check for duplicate ID
+    # for book in books_db:
+    #     if book["id"] == new_book["id"]:
+    #         raise HTTPException(status_code=400, detail="Book ID already exists")
+    # books_db.append(new_book)
+    # return new_book
 
 
 # def delete_book(book_id: int):
@@ -106,6 +114,6 @@ def create_book(book: Book):
 #     for index, book in enumerate(books_db):
 #         if book["id"] == book_id:
 #             del books_db[index]
-#             return {"detail": "Book deleted"}
-#     raise HTTPException(status_code=404, detail="Book not found")
+#             return {"detil": "Book deleted"}
+#     raise HTTPExceptiona(status_code=404, detail="Book not found")
 

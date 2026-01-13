@@ -14,7 +14,7 @@ todo.md
 server.log
 report.json
 tests/FizzBuzzApplication/
-
+.vscode
 
 
 echo ".venv/" >> .gitignore
@@ -25,3 +25,4 @@ echo "server.log" >> .gitignore
 echo "report.json" >> .gitignore
 echo "todo.md" >> .gitignore
 echo "tests/FizzBuzzApplication/" >> .gitignore
+echo ".vscode/" >> .gitignore
