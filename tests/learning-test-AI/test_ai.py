@@ -24,6 +24,7 @@ def test_ollama_response():
     assert response.status_code == 200, f"Failed! Status code is {response.status_code}"
     
     data = response.json()
+    print(data)
     # Assert the response contains a "response" key and (bonus) it is not empty.
     assert "response" in data, "Failed! Key 'response' not found in JSON"
     assert len(data["response"]) > 0, "Failed! Response is empty"
