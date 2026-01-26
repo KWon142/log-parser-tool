@@ -8,7 +8,7 @@ class BookstorePage:
         self.author_input = page.get_by_role("textbox", name="Author")
         self.price_input = page.get_by_placeholder("Price") # get by name of placholder
         self.add_book_input = page.get_by_role("button", name=re.compile("Add Book", re.IGNORECASE)) 
-
+        
         self.error_message = page.locator("#error-message")
 
         self.saved_title = ""

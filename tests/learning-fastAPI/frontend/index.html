@@ -50,6 +50,7 @@
     <script>
         const apiUrl = 'http://127.0.0.1:8000/books';
 
+        
         // 1. Function to Fetch and Render Books (GET)
         async function fetchBooks() {
             // const response = await fetch(apiUrl);
@@ -69,13 +70,14 @@
 
             books.forEach(book => {
                 const li = document.createElement('li');
-                li.textContent = `${book.title} by ${book.author} (${book.price})`;
+                li.textContent = `${book.title} by ${book.author} (${book.price}) `;
                 
                 // REQUIREMENT: Specific Class for the element
                 li.className = 'book-item';
                 
                 list.appendChild(li);
             })
+            
             
         }
 
@@ -87,6 +89,7 @@
             const title = document.getElementById('title').value;
             const author = document.getElementById('author').value;
             const price = document.getElementById('price').value;
+            
             const id = 5;
             
             if(!title || !author || !price) {

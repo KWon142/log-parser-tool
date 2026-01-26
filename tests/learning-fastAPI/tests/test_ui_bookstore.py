@@ -2,6 +2,8 @@ import re
 import pytest
 from playwright.sync_api import Page, expect
 from pages.index_page import BookstorePage
+import random
+import time
 
 @pytest.fixture(scope="function", autouse=True)
 def before_each_after_each(page: Page):
@@ -16,8 +18,10 @@ def before_each_after_each(page: Page):
     print("\n after the test runs")
 
 def test_positive_case(page: Page)->None:
+    # author = "Kwon Pham %d" % random.randint(1,50)
+    author = f"Kwon {int(time.time())}"
     index_page = BookstorePage(page)
-    index_page.enter_author("Kwon Pham")
+    index_page.enter_author(author)
     index_page.enter_title("28 years later")
     index_page.enter_price("99.99")
 
